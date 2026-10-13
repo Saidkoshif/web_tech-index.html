@@ -2,139 +2,470 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Course Tasks & Learning Roadmap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saidkoshif Soliev | Web Technologies Portfolio & Course Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons for UI Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      max-width: 900px;
-      color: #333;
+      font-family: 'Inter', sans-serif;
     }
-
-    h1 {
-      color: #2c3e50;
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 5px;
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
     }
-
-    h2 {
-      color: #3498db;
-      margin-top: 30px;
+    .dark .glass-panel {
+      background: rgba(17, 24, 39, 0.85);
+      border: 1px solid rgba(55, 65, 81, 0.5);
     }
-
-    h3 {
-      color: #e67e22;
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
     }
-
-    ul, ol {
-      margin-bottom: 20px;
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
     }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .checklist {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .checklist li {
-      padding-left: 5px;
-    }
-
-    .card {
-      background-color: #f9f9f9;
-      border-left: 4px solid #3498db;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 4px;
-    }
-
-    a {
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200">
 
-  <h1>Web Development Course Tasks & Syllabus</h1>
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/20">
+          SS
+        </div>
+        <div>
+          <h1 class="font-bold text-slate-900 dark:text-white leading-tight">Saidkoshif Soliev</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">ISMA University • Web Technologies</p>
+        </div>
+      </div>
 
-  <!-- 1. ACTION ITEMS & SUBMISSIONS -->
-  <section class="card">
-    <h2>1. Action Items & Submissions</h2>
-    <ul class="checklist">
-      <li>
-        <input type="checkbox" id="task1">
-        <label for="task1"><strong>Merge all certifications</strong> into one PPT presentation.</label>
-      </li>
-      <li>
-        <input type="checkbox" id="task2">
-        <label for="task2"><strong>Merge all mini project PPTs</strong> into one master PPT presentation.</label>
-      </li>
-      <li>
-        <input type="checkbox" id="task3">
-        <label for="task3"><strong>Create profile page</strong> and host it live on GitHub Pages.</label>
-        <br>
-        <small>Live Link: <a href="https://yourusername.github.io" target="_blank">View Live GitHub Profile Page</a></small>
-      </li>
-      <li>
-        <input type="checkbox" id="task4">
-        <label for="task4"><strong>Prepare presentation & voice-over screen recording</strong> walking through all points in detail.</label>
-        <br>
-        <small>Drive Link: <a href="https://drive.google.com" target="_blank">Watch Screen Recording Video (Google Drive)</a></small>
-      </li>
-    </ul>
-  </section>
+      <!-- Navigation Tabs & Theme Toggle -->
+      <div class="flex items-center gap-2 md:gap-4">
+        <nav class="flex bg-slate-200/60 dark:bg-slate-800/80 p-1 rounded-xl text-xs md:text-sm font-medium">
+          <button onclick="switchTab('deliverables')" id="tab-btn-deliverables" class="px-3 md:px-4 py-1.5 rounded-lg transition-all text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 shadow-sm">
+            <i class="ph ph-check-square-offset inline mr-1 text-base"></i> Deliverables
+          </button>
+          <button onclick="switchTab('roadmap')" id="tab-btn-roadmap" class="px-3 md:px-4 py-1.5 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+            <i class="ph ph-books inline mr-1 text-base"></i> Roadmap
+          </button>
+        </nav>
 
-  <!-- 2. INTERMEDIATE HTML CONCEPTS -->
-  <h2>2. Intermediate HTML Concepts</h2>
-  <ul>
-    <li>Introduction</li>
-    <li>SVG (Scalable Vector Graphics)</li>
-    <li>Tables</li>
-  </ul>
+        <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Toggle theme">
+          <i id="theme-icon" class="ph ph-moon text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <!-- 3. INTERMEDIATE CSS CONCEPTS -->
-  <h2>3. Intermediate CSS Concepts</h2>
-  <ul>
-    <li>Default Styles</li>
-    <li>CSS Units</li>
-    <li>More Text Styles</li>
-    <li>More CSS Properties</li>
-    <li>Advanced Selectors</li>
-    <li>Positioning</li>
-    <li>CSS Functions</li>
-    <li>Custom Properties (CSS Variables)</li>
-    <li>Browser Compatibility</li>
-    <li>Frameworks and Preprocessors</li>
-  </ul>
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-8 space-y-8">
 
-  <!-- 4. FORMS -->
-  <h2>4. Forms</h2>
-  <ul>
-    <li>Form Basics</li>
-    <li>Form Validation</li>
-    <li><strong>Project:</strong> Sign-up Form</li>
-  </ul>
+    <!-- Header / Hero Banner -->
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-700 text-white p-6 md:p-10 shadow-xl shadow-blue-900/10">
+      <div class="absolute -right-10 -top-10 w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>
+      <div class="absolute right-40 -bottom-10 w-40 h-40 bg-blue-400/20 rounded-full blur-xl"></div>
+      
+      <div class="relative z-10 max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold tracking-wide border border-white/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          ACTIVE ACADEMIC PORTFOLIO
+        </div>
+        <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight">
+          Web Technologies Course Submissions & Syllabus
+        </h2>
+        <p class="text-slate-100/90 text-sm md:text-base leading-relaxed">
+          Comprehensive collection of project decks, certifications, GitHub repositories, video walkthroughs, and topic mastery modules for the Web Technologies course at ISMA University.
+        </p>
 
-  <!-- 5. GRID -->
-  <h2>5. Grid</h2>
-  <ul>
-    <li>Introduction to Grid</li>
-    <li>Creating a Grid</li>
-    <li>Positioning Grid Elements</li>
-    <li>Advanced Grid Properties</li>
-    <li>Using Flexbox and Grid Together</li>
-    <li><strong>Project:</strong> Admin Dashboard</li>
-  </ul>
+        <!-- Status Badges -->
+        <div class="pt-2 flex flex-wrap gap-3 text-xs md:text-sm font-medium">
+          <div class="bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
+            <i class="ph ph-circle-wavy-check text-emerald-300 text-base"></i>
+            <span>Certifications: <strong class="text-white">Merged Deck</strong></span>
+          </div>
+          <div class="bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
+            <i class="ph ph-kanban text-amber-300 text-base"></i>
+            <span>Mini Projects: <strong class="text-white">Merged Deck</strong></span>
+          </div>
+          <div class="bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
+            <i class="ph ph-video-camera text-sky-300 text-base"></i>
+            <span>Video Recording: <strong class="text-white">Drive Ready</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 1: DELIVERABLES & SUBMISSIONS -->
+    <section id="tab-deliverables" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="ph ph-tray text-blue-600 dark:text-blue-400"></i> Course Submission Action Items
+          </h3>
+          <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+            Click tasks to toggle completion status or click the call-to-action buttons to access uploaded files.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold">
+          <span id="completion-counter" class="bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 px-3 py-1 rounded-full">
+            0 of 4 Completed
+          </span>
+        </div>
+      </div>
+
+      <!-- Action Items Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Item 1: Certifications Master Deck -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-blue-500 relative flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" onchange="toggleTask(this, 'task1')" id="chk-task1" class="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                <span class="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  1. Certifications Master PPT
+                </span>
+              </label>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                PPT / Presentation
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              All earned certifications merged into a single comprehensive PowerPoint presentation deck for submission.
+            </p>
+          </div>
+          <div class="mt-5 pl-8 flex flex-wrap gap-2">
+            <a href="#" onclick="triggerAction('Certifications PPT Presentation')" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium transition-colors shadow-sm">
+              <i class="ph ph-file-ppt text-base"></i> View / Download Certifications Deck
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 2: Mini Projects Master Deck -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-indigo-500 relative flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" onchange="toggleTask(this, 'task2')" id="chk-task2" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                <span class="font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  2. Mini Projects Showcase PPT
+                </span>
+              </label>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                PPT / Showcase
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Consolidated slides of all mini projects completed throughout the term, compiled into one main deck.
+            </p>
+          </div>
+          <div class="mt-5 pl-8 flex flex-wrap gap-2">
+            <a href="#" onclick="triggerAction('Mini Projects Master Deck')" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-medium transition-colors shadow-sm">
+              <i class="ph ph-presentation text-base"></i> View Projects PPT
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 3: Live GitHub Profile Page -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-emerald-500 relative flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" onchange="toggleTask(this, 'task3')" id="chk-task3" class="w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer">
+                <span class="font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  3. Live GitHub Profile & Website
+                </span>
+              </label>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                Live Deployment
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Created personal portfolio profile page, published and hosted live via GitHub Pages.
+            </p>
+          </div>
+          <div class="mt-5 pl-8 flex flex-wrap gap-2">
+            <a href="https://github.com/saidkoshif" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-black dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-medium transition-colors shadow-sm">
+              <i class="ph ph-github-logo text-base"></i> Open GitHub Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 4: Voiceover Screen Recording -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-sky-500 relative flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" onchange="toggleTask(this, 'task4')" id="chk-task4" class="w-5 h-5 rounded border-slate-300 text-sky-600 focus:ring-sky-500 cursor-pointer">
+                <span class="font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                  4. Voiceover Screen Recording
+                </span>
+              </label>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300">
+                Google Drive
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Detailed screen recording presentation walking through all completed assignments, code, and live demos with personal audio commentary.
+            </p>
+          </div>
+          <div class="mt-5 pl-8 flex flex-wrap gap-2">
+            <a href="https://drive.google.com" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-medium transition-colors shadow-sm">
+              <i class="ph ph-google-drive-logo text-base"></i> Watch Recording on Google Drive
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Screen Recording Preview / Video Player Container -->
+      <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+            <i class="ph ph-video text-red-500"></i> Video Presentation Demo Container
+          </h4>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Public Access Link Configured</span>
+        </div>
+        <div class="relative aspect-video rounded-xl overflow-hidden bg-slate-900 flex flex-col items-center justify-center text-center p-6 border border-slate-800">
+          <div class="w-16 h-16 rounded-full bg-blue-600/30 text-blue-400 flex items-center justify-center text-3xl mb-3 border border-blue-500/30 animate-pulse">
+            <i class="ph ph-play-circle"></i>
+          </div>
+          <h5 class="font-bold text-white text-lg">Presentation & Project Walkthrough</h5>
+          <p class="text-xs text-slate-400 max-w-md mt-1">
+            Voiceover screen recording demonstrating certifications, mini projects, code structure, and live deployment.
+          </p>
+          <a href="https://drive.google.com" target="_blank" class="mt-4 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium transition-colors">
+            Open in Google Drive Player
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: COURSE ROADMAP & SYLLABUS -->
+    <section id="tab-roadmap" class="space-y-6 hidden">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <i class="ph ph-compass text-indigo-600 dark:text-indigo-400"></i> Web Technologies Learning Roadmap
+        </h3>
+        <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+          Curriculum breakdown covering intermediate HTML, CSS styling techniques, forms, and grid layouts.
+        </p>
+      </div>
+
+      <!-- Roadmap Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Module 1: Intermediate HTML -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-950 dark:text-orange-300 flex items-center justify-center font-bold text-lg">
+              <i class="ph ph-code"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">Module 1: Intermediate HTML Concepts</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Core structural web topics</p>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center gap-2">
+              <i class="ph ph-check-circle text-emerald-500"></i> Introduction & Semantics
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph ph-check-circle text-emerald-500"></i> SVG (Scalable Vector Graphics)
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph ph-check-circle text-emerald-500"></i> Advanced Tables & Structuring
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 2: Intermediate CSS -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300 flex items-center justify-center font-bold text-lg">
+              <i class="ph ph-paint-brush"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">Module 2: Intermediate CSS Concepts</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Styling, selectors, and layout engines</p>
+            </div>
+          </div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-300">
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Default Styles</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> CSS Units (rem, vh, %)</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Advanced Text Styles</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> More CSS Properties</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Advanced Selectors</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Positioning (Absolute/Relative)</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> CSS Functions (calc, clamp)</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Custom Properties (Variables)</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Browser Compatibility</li>
+            <li class="flex items-center gap-1.5"><i class="ph ph-caret-right text-blue-500"></i> Frameworks & Preprocessors</li>
+          </ul>
+        </div>
+
+        <!-- Module 3: Forms & Validation -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 dark:bg-purple-950 dark:text-purple-300 flex items-center justify-center font-bold text-lg">
+              <i class="ph ph-textbox"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">Module 3: Forms & Validation</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">User input handling</p>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-500"></i> Form Basics & Attributes</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-500"></i> HTML5 Client-side Validation</li>
+            <li class="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 flex items-center justify-between">
+              <span class="font-medium text-purple-900 dark:text-purple-200 text-xs">
+                <i class="ph ph-star text-amber-500 mr-1"></i> Project: Sign-up Form
+              </span>
+              <span class="text-[10px] uppercase font-bold text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900 px-2 py-0.5 rounded-md">Completed</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 4: Grid & Layouts -->
+        <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 dark:bg-teal-950 dark:text-teal-300 flex items-center justify-center font-bold text-lg">
+              <i class="ph ph-grid-four"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">Module 4: Grid & Modern Layouts</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Two-dimensional web design</p>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-500"></i> Intro to Grid & Creating Grids</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-500"></i> Positioning Grid Elements & Template Areas</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-500"></i> Combining Flexbox and Grid</li>
+            <li class="p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 flex items-center justify-between">
+              <span class="font-medium text-teal-900 dark:text-teal-200 text-xs">
+                <i class="ph ph-star text-amber-500 mr-1"></i> Project: Admin Dashboard
+              </span>
+              <span class="text-[10px] uppercase font-bold text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-900 px-2 py-0.5 rounded-md">Completed</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <p>© 2026 Saidkoshif Soliev • ISMA University Web Technologies Course</p>
+  </footer>
+
+  <!-- Notification Toast Container -->
+  <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs z-50">
+    <i class="ph ph-info text-base text-blue-400 dark:text-blue-600"></i>
+    <span id="toast-message">Action executed!</span>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    /* Tab Switching Logic */
+    function switchTab(tabName) {
+      const tabDeliverables = document.getElementById('tab-deliverables');
+      const tabRoadmap = document.getElementById('tab-roadmap');
+      const btnDeliverables = document.getElementById('tab-btn-deliverables');
+      const btnRoadmap = document.getElementById('tab-btn-roadmap');
+
+      if (tabName === 'deliverables') {
+        tabDeliverables.classList.remove('hidden');
+        tabRoadmap.classList.add('hidden');
+
+        btnDeliverables.className = "px-3 md:px-4 py-1.5 rounded-lg transition-all text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 shadow-sm";
+        btnRoadmap.className = "px-3 md:px-4 py-1.5 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+      } else {
+        tabDeliverables.classList.add('hidden');
+        tabRoadmap.classList.remove('hidden');
+
+        btnRoadmap.className = "px-3 md:px-4 py-1.5 rounded-lg transition-all text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 shadow-sm";
+        btnDeliverables.className = "px-3 md:px-4 py-1.5 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+      }
+    }
+
+    /* Dark Mode Toggle */
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      const icon = document.getElementById('theme-icon');
+      if (isDark) {
+        icon.className = "ph ph-sun text-lg";
+      } else {
+        icon.className = "ph ph-moon text-lg";
+      }
+    }
+
+    /* Task Completion Tracker */
+    function toggleTask(checkbox, taskId) {
+      updateCounter();
+      const actionName = checkbox.parentElement.innerText.trim();
+      if (checkbox.checked) {
+        showToast(`Marked "${actionName}" as completed!`);
+      }
+    }
+
+    function updateCounter() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      let checkedCount = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) checkedCount++;
+      });
+      document.getElementById('completion-counter').innerText = `${checkedCount} of ${checkboxes.length} Completed`;
+    }
+
+    /* Action Trigger Toast */
+    function triggerAction(title) {
+      showToast(`Opening ${title}... Replace link with your uploaded file URL.`);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toast-message');
+      msg.innerText = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+  </script>
 
 </body>
 </html>
