@@ -3,96 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Profile Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
+            padding: 0;
         }
 
-        h1 {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
             text-align: center;
-            color: #444;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #f8fafc;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #94a3b8;
         }
 
         .section {
             margin-bottom: 25px;
         }
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #555;
+        .section h2 {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: vertical;
-            font-size: 14px;
+        .info-box {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 15px;
+            color: #cbd5e1;
+        }
+
+        .upload-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .upload-box {
-            border: 2px dashed #ccc;
-            padding: 15px;
+            border: 2px dashed #475569;
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
-            border-radius: 5px;
-            background-color: #fafafa;
+            background-color: #0f172a;
+            transition: border-color 0.2s, background-color 0.2s;
+            cursor: pointer;
         }
 
-        .upload-box input {
-            margin-top: 10px;
+        .upload-box:hover {
+            border-color: #3b82f6;
+            background-color: #172033;
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-label {
+            cursor: pointer;
+            display: block;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .upload-label span {
+            color: #60a5fa;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>My Profile</h1>
+    <div class="card">
+        <!-- Profile Header -->
+        <div class="header">
+            <div class="avatar">JD</div>
+            <h1>John Doe</h1>
+            <p>Put your title or short subtitle here</p>
+        </div>
 
         <!-- Space to add info -->
         <div class="section">
-            <label for="about">About Me</label>
-            <textarea id="about" placeholder="Type your info here..."></textarea>
-        </div>
-
-        <!-- First PDF Upload Block -->
-        <div class="section">
-            <label>Upload PDF 1</label>
-            <div class="upload-box">
-                <input type="file" accept=".pdf">
+            <h2>About Me</h2>
+            <div class="info-box">
+                Type or paste your information right here inside the code. This box will keep everything neat and clean.
             </div>
         </div>
 
-        <!-- Second PDF Upload Block -->
+        <!-- Two blocks to upload PDF files -->
         <div class="section">
-            <label>Upload PDF 2</label>
-            <div class="upload-box">
-                <input type="file" accept=".pdf">
+            <h2>Documents</h2>
+            <div class="upload-grid">
+                
+                <!-- PDF Block 1 -->
+                <div class="upload-box" onclick="document.getElementById('pdf1').click();">
+                    <label class="upload-label" for="pdf1">
+                        📄 Click to upload <span>First PDF</span>
+                    </label>
+                    <input type="file" id="pdf1" accept=".pdf">
+                </div>
+
+                <!-- PDF Block 2 -->
+                <div class="upload-box" onclick="document.getElementById('pdf2').click();">
+                    <label class="upload-label" for="pdf2">
+                        📄 Click to upload <span>Second PDF</span>
+                    </label>
+                    <input type="file" id="pdf2" accept=".pdf">
+                </div>
+
             </div>
         </div>
-
     </div>
-<ul>
-    <a href="index.html"> Previous Page</a>
-  </ul>
+
 </body>
 </html>
